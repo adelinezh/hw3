@@ -27,7 +27,6 @@ void print(Node* head);
  */
 void dealloc(Node* head);
 
-
 Node* readList(const char* filename)
 {
     Node* h = NULL;
@@ -67,8 +66,20 @@ void dealloc(Node* head)
 //   function object struct declarations
 // -----------------------------------------------
 
-
-
+struct Predicate
+{
+    bool operator()(int value) const
+    {
+        if (value % 2 == 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+};
 
 
 int main(int argc, char* argv[])
@@ -86,10 +97,20 @@ int main(int argc, char* argv[])
     print(head);
 
     // Test out your linked list code
+    /*
+    Node *smaller = nullptr;
+    Node *larger = nullptr;
 
+    llpivot(head, smaller, larger, 5);
+    print(smaller);
+    print(larger);
 
+    Predicate pred;
+    head = llfilter(head, pred);
 
-    
+    print(head);
+    dealloc(head);
+    */
     return 0;
 
 }
